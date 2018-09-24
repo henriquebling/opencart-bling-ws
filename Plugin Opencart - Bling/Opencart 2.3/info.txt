@@ -1,0 +1,4 @@
+
+Todo o conteúdo contido foi baseado da RestFul, no qual a mesma é a responsável pela disponibilização do plugin, podendo ser encontrado no link ( http://www.opencart.com/index.php?route=extension/extension/info&extension_id=15445&filter_search=restful ).
+
+Para a instalação correta, por favor siga o manual de instalação no link http://manuais.bling.com.br/api/?item=opencart-para-desenvolvedores

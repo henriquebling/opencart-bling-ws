@@ -1,0 +1,11 @@
+The upload folder contains all files for this module. 
+You will notice that the folders are in the same structure as your Opencart installation.
+
+1. Navigate to your opencart root folder using an FTP program
+2. Upload the "catalog" & "admin" folder to your opencart installation folder
+3. Go to your admin area in Extensions->Product Feeds and enable your REST API extension
+   You have to fill the security key field (eg. 12345 or anything else)
+   You have to use this key in your REST URLs, eg:
+   http://example.com/orders/key/12345
+   http://example.com/products/key/12345
+
