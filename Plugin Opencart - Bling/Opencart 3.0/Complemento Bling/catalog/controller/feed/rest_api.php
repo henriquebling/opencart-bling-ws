@@ -36,6 +36,7 @@ class ControllerFeedRestApi extends Controller {
 									'width'			=> $product['width'],
 									'height'		=> $product['height'],
 									'attribute'		=> $product['attribute'],
+									'brand'			=> $product['brand'],
 									'variation'		=> $variation
 									);
 				}
@@ -110,6 +111,7 @@ class ControllerFeedRestApi extends Controller {
 								'width'			=> $product['width'],
 								'height'		=> $product['height'],
 								'attribute'		=> $product['attribute'],
+								'brand'			=> $product['brand'],
 								'variation'		=> $variation
 								);
 			}
