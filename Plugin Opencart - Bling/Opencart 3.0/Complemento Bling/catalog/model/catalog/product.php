@@ -7,8 +7,9 @@
 
 	//Plugin
 	public function getAllProduct(){
-		$query = $this->db->query("SELECT pd.product_id, pd.name, pd.description, p.model, p.sku, p.quantity, p.price, p.weight, p.length, p.width, p.height,p.date_added, pa.text AS attribute 					
-								   FROM " . DB_PREFIX . "product p LEFT JOIN  " . DB_PREFIX . "product_description pd ON pd.product_id = p.product_id LEFT JOIN  " . DB_PREFIX . "product_attribute pa ON  pa.product_id = p.product_id 							   
+		$query = $this->db->query("SELECT m.name AS brand, p.image, pd.product_id, pd.name, pd.description, p.model, p.sku, p.quantity, p.price, p.weight, p.length, p.width, p.height,p.date_added, pa.text AS attribute 					
+								   FROM " . DB_PREFIX . "product p LEFT JOIN  " . DB_PREFIX . "product_description pd ON pd.product_id = p.product_id LEFT JOIN  " . DB_PREFIX . "product_attribute pa ON  pa.product_id = p.product_id	
+									LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)
 								   GROUP BY p.product_id"
 							      );
 		return $query->rows;
@@ -28,8 +29,9 @@
 			$finishDate = $y."-".$m ."-".$d;
 		}
 
-		$query = $this->db->query("SELECT pd.product_id, pd.name, pd.description, p.model, p.sku, p.quantity, p.price, p.weight, p.length, p.width, p.height,p.date_added, pa.text AS attribute 					
-								   FROM " . DB_PREFIX . "product p LEFT JOIN  " . DB_PREFIX . "product_description pd ON pd.product_id = p.product_id LEFT JOIN  " . DB_PREFIX . "product_attribute pa ON  pa.product_id = p.product_id 							   
+		$query = $this->db->query("SELECT m.name AS brand, p.image, pd.product_id, pd.name, pd.description, p.model, p.sku, p.quantity, p.price, p.weight, p.length, p.width, p.height,p.date_added, pa.text AS attribute 					
+								   FROM " . DB_PREFIX . "product p LEFT JOIN  " . DB_PREFIX . "product_description pd ON pd.product_id = p.product_id LEFT JOIN  " . DB_PREFIX . "product_attribute pa ON  pa.product_id = p.product_id 	
+									LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)
 								   WHERE p.date_added BETWEEN '".$startDate."' AND '".$finishDate."'  AND p.status = '1'   							  
 								   GROUP BY p.product_id"
 		);
