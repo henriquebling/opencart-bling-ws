@@ -28,7 +28,7 @@ class ControllerFeedRestApi extends Controller {
 									'name'			=> $product['name'],
 									'description'		=> 'b64'.base64_encode($product['description']),
 									'model'			=> 'b64'.base64_encode($product['model']),
-									'sku'			=> $product['sku'],
+									'sku'			=> empty($product['upc']) ? $product['sku'] : $product['upc'],
 									'quantity'		=> $product['quantity'],
 									'price'			=> $product['price'],
 									'weight'		=> $product['weight'],
@@ -102,7 +102,7 @@ class ControllerFeedRestApi extends Controller {
 								'name'			=> $product['name'],
 								'description'		=> 'b64'.base64_encode($product['description']),
 								'model'			=> 'b64'.base64_encode($product['model']),
-								'sku'			=> $product['sku'],
+								'sku'			=> empty($product['upc']) ? $product['sku'] : $product['upc'],
 								'quantity'		=> $product['quantity'],
 								'price'			=> $product['price'],
 								'weight'		=> $product['weight'],
@@ -402,7 +402,7 @@ public function products_insert() {
 					'product_id'  	    	=>  $product['product_id'],
 					'name'		 	=>  $product['name'],
 					'model' 	  	=>  $product['model'],
-					'sku' 	  		=>  $product['sku'],
+					'sku' 	  		=>  empty($product['upc']) ? $product['sku'] : $product['upc'],
 					'quantity'    		=>  $product['quantity'],
 					'price'  	 	=>  $product['price'],
 					'total'  	 	=>  $product['total'],
@@ -529,4 +529,3 @@ public function products_insert() {
 		}	
 	}	
 }
-
